@@ -1,0 +1,658 @@
+{
+  "request_info": {
+    "success": true,
+    "credits_used": 1,
+    "credits_remaining": 99,
+    "credits_used_this_request": 1
+  },
+  "request_parameters": {
+    "amazon_domain": "amazon.com",
+    "asin": "B073JYC4XM",
+    "type": "product"
+  },
+  "request_metadata": {
+    "created_at": "2026-07-18T08:28:58.480Z",
+    "processed_at": "2026-07-18T08:29:04.324Z",
+    "total_time_taken": 5.84,
+    "amazon_url": "https://www.amazon.com/dp/B073JYC4XM?th=1&psc=1"
+  },
+  "product": {
+    "title": "[Older Version] SanDisk 128GB Ultra MicroSDXC UHS-I Memory Card with Adapter - 100MB/s, C10, U1, Full HD, A1, Micro SD Card - SDSQUAR-128G-GN6MA | Up to 100MB per S, Class 10, U1, A1, Includes SD Adapter, Full HD Video",
+    "search_alias": {
+      "title": "Electronics",
+      "value": "search-alias=electronics"
+    },
+    "keywords": "[Older Version] SanDisk 128GB Ultra MicroSDXC UHS-I Memory Card with Adapter - 100MB/s, C10, U1, Full HD, A1, Micro SD Card - SDSQUAR-128G-GN6MA | Up to 100MB per S, Class 10, U1, A1, Includes SD Adapter, Full HD Video",
+    "keywords_list": [
+      "[Older Version] SanDisk 128GB Ultra MicroSDXC UHS-I Memory Card with Adapter - 100MB/s",
+      "C10",
+      "Full HD",
+      "Micro SD Card - SDSQUAR-128G-GN6MA | Up to 100MB per S",
+      "Class 10",
+      "Includes SD Adapter",
+      "Full HD Video"
+    ],
+    "is_collection": false,
+    "asin": "B073JYC4XM",
+    "parent_asin": "B073JYC4XM",
+    "gtin": "619659160395",
+    "link": "https://www.amazon.com/SanDisk-128GB-microSDXC-Memory-Adapter/dp/B073JYC4XM",
+    "brand": "Sandisk",
+    "protection_plans": [
+      {
+        "name": "2-year Photo and Data Recovery Plan",
+        "duration_months": 24,
+        "price": {
+          "value": "3.99",
+          "billing_type": "one_time"
+        }
+      },
+      {
+        "name": "3-year Photo and Data Recovery Plan",
+        "duration_months": 36,
+        "price": {
+          "value": "4.99",
+          "billing_type": "one_time"
+        }
+      }
+    ],
+    "sell_on_amazon": false,
+    "proposition_65_warning": false,
+    "has_size_guide": true,
+    "add_on_item": {
+      "is_add_on_item": true
+    },
+    "categories": [
+      {
+        "name": "Electronics",
+        "link": "https://www.amazon.com/electronics-store/b/ref=dp_bc_1?ie=UTF8&node=172282",
+        "category_id": "172282"
+      },
+      {
+        "name": "Computers & Accessories",
+        "link": "https://www.amazon.com/computer-pc-hardware-accessories-add-ons/b/ref=dp_bc_2?ie=UTF8&node=541966",
+        "category_id": "541966"
+      },
+      {
+        "name": "Computer Accessories & Peripherals",
+        "link": "https://www.amazon.com/Computer-Accessories-Supplies/b/ref=dp_bc_3?ie=UTF8&node=172456",
+        "category_id": "172456"
+      },
+      {
+        "name": "Memory Cards",
+        "link": "https://www.amazon.com/Memory-Cards-Computer-Add-Ons-Computers/b/ref=dp_bc_4?ie=UTF8&node=516866",
+        "category_id": "516866"
+      },
+      {
+        "name": "Micro SD Cards",
+        "link": "https://www.amazon.com/Micro-SD-Memory-Cards/b/ref=dp_bc_5?ie=UTF8&node=3015433011",
+        "category_id": "3015433011"
+      }
+    ],
+    "categories_flat": "Electronics > Computers & Accessories > Computer Accessories & Peripherals > Memory Cards > Micro SD Cards",
+    "description": "SanDisk Ultra microSDXC and microSDHC cards are fast for better pictures, app performance, and Full HD video. Ideal for Android smartphones and tablets, these A1-rated cards load apps faster for a better smartphone experience. Available in capacities up to 400GB, you have the capacity to take more pictures and Full HD video and capture life at its fullest. Built to perform in harsh conditions, SanDisk Ultra microSD cards are waterproof, temperature proof, shockproof, and X-ray proof. 1GB=1,000,000,000 bytes. Actual user storage less. (For 64GB-256GB): Up to 100MB/s read speed; write speed lower. (For 16GB-32GB): Up to 98MB/s read speed; write speed lower. Based on internal testing; performance may be lower depending on host device, interface, usage conditions and other factors. 1MB=1,000,000 bytes. (1) Full HD (1920x1080) video support may vary based upon host device, file attributes, and other factors. (2) Card only. (3) Results may vary based on host device, app type and other factors. (4) Download and installation required. (5) Based on 4.1GB transfer of photos (Average file 3.5MB) with USB 3.0 reader. Results may vary based on host device, file attributes and other factors. 6) Approximations; Results and Full HD (1920x1080) video support may vary based on host device, file attributes and other factors.",
+    "sub_title": {
+      "text": "Visit the Sandisk Store",
+      "link": "https://www.amazon.com/stores/Sandisk/page/CD971F4B-EE23-4EA1-96E3-567678AC9C0A?lp_asin=B073JYC4XM&ref_=ast_bln&store_ref=bl_ast_dp_brandlogo_sto"
+    },
+    "marketplace_id": "ATVPDKIKX0DER",
+    "rating": 4.7,
+    "rating_breakdown": {
+      "five_star": {
+        "percentage": 84,
+        "count": 185234
+      },
+      "four_star": {
+        "percentage": 11,
+        "count": 24257
+      },
+      "three_star": {
+        "percentage": 4,
+        "count": 8821
+      },
+      "two_star": {
+        "percentage": 0,
+        "count": 0
+      },
+      "one_star": {
+        "percentage": 1,
+        "count": 2205
+      }
+    },
+    "ratings_total": 220517,
+    "main_image": {
+      "link": "https://m.media-amazon.com/images/I/51l5HURpwpL.jpg"
+    },
+    "images": [
+      {
+        "link": "https://m.media-amazon.com/images/I/61c0HMo4mhL._AC_SL1500_.jpg",
+        "variant": "PT01"
+      },
+      {
+        "link": "https://m.media-amazon.com/images/I/61A5yvLX7FL._AC_SL1200_.jpg",
+        "variant": "PT02"
+      },
+      {
+        "link": "https://m.media-amazon.com/images/I/61qghmaHKXL._AC_SL1200_.jpg",
+        "variant": "PT03"
+      },
+      {
+        "link": "https://m.media-amazon.com/images/I/61TALLEpDlL._AC_SL1200_.jpg",
+        "variant": "PT04"
+      }
+    ],
+    "images_count": 4,
+    "images_flat": "https://m.media-amazon.com/images/I/61c0HMo4mhL._AC_SL1500_.jpg,https://m.media-amazon.com/images/I/61A5yvLX7FL._AC_SL1200_.jpg,https://m.media-amazon.com/images/I/61qghmaHKXL._AC_SL1200_.jpg,https://m.media-amazon.com/images/I/61TALLEpDlL._AC_SL1200_.jpg",
+    "videos_count": 6,
+    "videos_additional": [
+      {
+        "type": "videos_for_this_product",
+        "id": "amzn1.ive.vendor.video.2312f27daa0b46d183174de58725bb2c",
+        "product_asin": "B073JYC4XM",
+        "parent_asin": "B073JYC4XM",
+        "related_products": "B073K14CVB,B073JWXGNT,B073JYVKNX,B073JY5T7T,B0758NHWS8",
+        "title": "SanDisk Ultra microSD Memory Card",
+        "public_name": "Sandisk Technologies,  Inc",
+        "vendor_code": "137GO",
+        "vendor_name": "Sandisk Technologies,  Inc",
+        "video_image_url": "https://m.media-amazon.com/images/I/51hoTKyxlxL._CR1,0,638,360_SR342,193_.jpg",
+        "video_image_url_unchanged": "https://m.media-amazon.com/images/I/51hoTKyxlxL.jpg",
+        "video_image_width": "640",
+        "video_image_height": "360",
+        "video_image_extension": "jpg",
+        "video_url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/5c1181fe-7c83-4436-a466-0021e84ef18e/default.jobtemplate.hls.m3u8",
+        "video_previews": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/46a30926-3874-497c-b8e2-22b3f1203543/videopreview.jobtemplate.mp4.342X192P_20HZ_350KBPS_VER_1_0.mp4,342X192P_20HZ_350KBPS_VER_1_0,video/mp4,https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/46a30926-3874-497c-b8e2-22b3f1203543/8036ddb7-17e4-43f2-a2b1-0f51911233ca/2312f27daa0b46d183174de58725bb2c_0-100-0-100_gandalf_preview.m3u8,gandalf,application/x-mpegURL",
+        "video_mime_type": "application/x-mpegURL",
+        "duration": "0:34",
+        "closed_captions": "en,https://m.media-amazon.com/images/S/vse-vms-closed-captions-artifact-us-east-1-prod/closedCaptions/e67ce836-dd1d-4fe1-b283-b39f3d72b88c.vtt"
+      },
+      {
+        "type": "videos_for_this_product",
+        "id": "amzn1.productreview.RAWQJN0UPLGV4",
+        "product_asin": "B073JYC4XM",
+        "parent_asin": "B073JYC4XM",
+        "title": "Original Confirmed with Test! Works Great.",
+        "profile_image_url": "https://m.media-amazon.com/images/S/amazon-avatars-global/default._SL34_.png",
+        "profile_link": "/gp/profile/amzn1.account.AESOXOYUNC64XDU2Y42X2D4UEBHA",
+        "public_name": "Satyam",
+        "vendor_code": "AOD60",
+        "vendor_name": "Satyam",
+        "video_image_url": "https://m.media-amazon.com/images/I/C1LXh-JPLLS._CR3,0,1914,1080_SR684,386_.png",
+        "video_image_url_unchanged": "https://images-na.ssl-images-amazon.com/images/I/C1LXh-JPLLS.png",
+        "video_image_width": "1920",
+        "video_image_height": "1080",
+        "video_image_extension": "png",
+        "video_url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/v2/a2b8ca70-384b-50b3-9eae-3b58c127a4f8/ShortForm-Generic-480p-16-9-1409173089793-rpcbe5.mp4",
+        "video_previews": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/940ae12f-96c5-4f6b-a00f-80c4139309e2/videopreview.jobtemplate.mp4.342X192P_20HZ_350KBPS_VER_1_0.mp4,342X192P_20HZ_350KBPS_VER_1_0,video/mp4",
+        "video_mime_type": "video/mp4",
+        "duration": "0:30",
+        "closed_captions": "en,https://m.media-amazon.com/images/S/vse-vms-closed-captions-artifact-us-east-1-prod/closedCaptions/d97b1db0-f476-47a8-b7d1-96fc93c2071b.vtt"
+      },
+      {
+        "type": "videos_for_this_product",
+        "id": "amzn1.vse.video.99c8ce3e3ea6422487b05f8b36ebb153",
+        "product_asin": "B073JYC4XM",
+        "parent_asin": "B073JYC4XM",
+        "related_products": "B076B27WP6,B07X4YDKTF,B01K9MQ8WW,B07FTKJCMT,B07VQJ56T3",
+        "title": "Top 10 Galaxy Note 9 and S9 Accessories",
+        "profile_image_url": "https://m.media-amazon.com/images/I/41QalsfNhHL._CR0,0,650,650_._FMjpg_._SL34_.jpg",
+        "profile_link": "/shop/influencer-b7e37734",
+        "public_name": "Techisode TV",
+        "vendor_code": "influencer-b7e37734:shop",
+        "vendor_name": "Techisode TV",
+        "vendor_tracking_id": "techisodetv-20",
+        "video_image_url": "https://m.media-amazon.com/images/I/81Y2VF2GZ8L._CR3,0,1914,1080_SR684,386_.jpg",
+        "video_image_url_unchanged": "https://m.media-amazon.com/images/I/81Y2VF2GZ8L.jpg",
+        "video_image_width": "1920",
+        "video_image_height": "1080",
+        "video_image_extension": "jpg",
+        "video_url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/f1f03cfe-698c-48a9-b906-c3c89409596a/default.jobtemplate.hls.m3u8",
+        "video_previews": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/ea8ecc00-e50b-4ba5-8637-e772b8016324/videopreview.jobtemplate.mp4.342X192P_20HZ_350KBPS_VER_1_0.mp4,342X192P_20HZ_350KBPS_VER_1_0,video/mp4",
+        "video_mime_type": "application/x-mpegURL",
+        "duration": "11:33",
+        "closed_captions": "en,https://m.media-amazon.com/images/S/vse-vms-closed-captions-artifact-us-east-1-prod/closedCaptions/8a6cccb4-dc6f-4438-9f14-26aa1bc259e9.vtt"
+      },
+      {
+        "type": "videos_for_this_product",
+        "id": "amzn1.vse.video.0f841124f4fc403fbcc4323acf32fa10",
+        "product_asin": "B073JYC4XM",
+        "parent_asin": "B073JYC4XM",
+        "title": "128GB SanDisk card unboxing",
+        "profile_image_url": "https://m.media-amazon.com/images/I/71ITQUjectL._CR0,0,1024,1024_._FMjpg_._SL34_.jpg",
+        "profile_link": "/shop/cecileleung55",
+        "public_name": "Cecile Leung",
+        "vendor_code": "cecileleung55:shop",
+        "vendor_name": "Cecile Leung",
+        "vendor_tracking_id": "onamzceci0312-20",
+        "video_image_url": "https://m.media-amazon.com/images/I/A1ZscherBHL._CR8,0,1361,768_SR684,386_.png",
+        "video_image_url_unchanged": "https://m.media-amazon.com/images/I/A1ZscherBHL.png",
+        "video_image_width": "1376",
+        "video_image_height": "768",
+        "video_image_extension": "png",
+        "video_url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/8b207336-8d6a-49d1-a3de-c7c4a645b27f/default.jobtemplate.hls.m3u8",
+        "video_previews": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/ec820fd4-51d7-4889-b4f6-4e1fdf18300d/videopreview.jobtemplate.mp4.default.mp4,342X192P_20HZ_350KBPS_VER_1_0,video/mp4,https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/ec820fd4-51d7-4889-b4f6-4e1fdf18300d/videopreview.jobtemplate.mp4.default.mp4,default,video/mp4",
+        "video_mime_type": "application/x-mpegURL",
+        "duration": "0:14",
+        "closed_captions": "en,https://m.media-amazon.com/images/S/vse-vms-closed-captions-artifact-us-east-1-prod/closedCaptions/ff730fd1-8f4f-4645-bcda-c881a8e568c4.vtt"
+      },
+      {
+        "type": "videos_for_this_product",
+        "id": "amzn1.vse.video.07058ee3428e4e56b65a0cd2f0503bae",
+        "product_asin": "B073JYC4XM",
+        "parent_asin": "B073JYC4XM",
+        "related_products": "B08GYKNCCP,B07XDCZ9J3,B07YQ5M4V4,B0B7NTY2S6,B0CRJCSP41",
+        "title": "Watch before you buy! Honest review!",
+        "profile_image_url": "https://m.media-amazon.com/images/I/A1T2W4wjC2L._CR0,0,2544,2544_._FMjpg_._SL34_.jpg",
+        "profile_link": "/shop/chickenkids5",
+        "public_name": "Phoebe Rothwell",
+        "vendor_code": "chickenkids5:shop",
+        "vendor_name": "Phoebe Rothwell",
+        "vendor_tracking_id": "onamzphoebelr-20",
+        "video_image_url": "https://m.media-amazon.com/images/I/71WnLMCs5VL._CR0,0,640,361_SR342,193_.jpg",
+        "video_image_url_unchanged": "https://m.media-amazon.com/images/I/71WnLMCs5VL.jpg",
+        "video_image_width": "640",
+        "video_image_height": "1137",
+        "video_image_extension": "jpg",
+        "video_url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/4b58a343-02d6-41c3-93bb-85db32a1f601/default.vertical.jobtemplate.hls.m3u8",
+        "video_previews": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/51d09b28-ad80-464e-9bba-22162a03fda2/videopreview.jobtemplate.mp4.default.mp4,342X192P_20HZ_350KBPS_VER_1_0,video/mp4,https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/51d09b28-ad80-464e-9bba-22162a03fda2/videopreview.jobtemplate.mp4.default.mp4,default,video/mp4,https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/51d09b28-ad80-464e-9bba-22162a03fda2/438733ec-cc59-4664-87f1-f6dc1a0f66c2/07058ee3428e4e56b65a0cd2f0503bae_0-100-0-100_gandalf_preview.m3u8,gandalf,application/x-mpegURL",
+        "video_mime_type": "application/x-mpegURL",
+        "duration": "0:51",
+        "closed_captions": "en,https://m.media-amazon.com/images/S/vse-vms-closed-captions-artifact-us-east-1-prod/closedCaptions/e49b429d-e21c-4b43-b71e-401c7e7b5f85.vtt"
+      },
+      {
+        "type": "videos_for_this_product",
+        "id": "amzn1.ive.ugc.video.e8be75113656497fa6ddf8c2b6c178f2",
+        "product_asin": "B073JYC4XM",
+        "parent_asin": "B073JYC4XM",
+        "title": "Unboxing SanDisk Ultra 128GB ",
+        "profile_image_url": "https://m.media-amazon.com/images/S/amazon-avatars-global/acae32fd-eba5-4c87-8311-e4b0552e65e6._CR0%2C42%2C248%2C248_UX460_._SL34_.jpg",
+        "profile_link": "/gp/profile/amzn1.account.AHUVLVJCCVRN4BLRMDYZJN3CKGLA",
+        "public_name": "LOON3YDG",
+        "vendor_code": "UGCPR",
+        "vendor_name": "LOON3YDG",
+        "video_image_url": "https://m.media-amazon.com/images/I/61sUrmhJ4+L._CR0,0,1080,609_SR684,386_.jpg",
+        "video_image_url_unchanged": "https://m.media-amazon.com/images/I/61sUrmhJ4+L.jpg",
+        "video_image_width": "1080",
+        "video_image_height": "1920",
+        "video_image_extension": "jpg",
+        "video_url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/bf1232b6-4f4f-4bfb-af80-2b093e402f2e/default.jobtemplate.hls.m3u8",
+        "video_previews": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/33ef8ad4-b76f-4553-b49f-efac9a5fc367/videopreview.jobtemplate.mp4.default.mp4,342X192P_20HZ_350KBPS_VER_1_0,video/mp4,https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/33ef8ad4-b76f-4553-b49f-efac9a5fc367/videopreview.jobtemplate.mp4.default.mp4,default,video/mp4,https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/33ef8ad4-b76f-4553-b49f-efac9a5fc367/1eaa6b93-2373-43dc-af45-1b32d76500ad/e8be75113656497fa6ddf8c2b6c178f2_0-100-0-100_gandalf_preview.m3u8,gandalf,application/x-mpegURL",
+        "video_mime_type": "application/x-mpegURL",
+        "duration": "0:11",
+        "closed_captions": "en,https://m.media-amazon.com/images/S/vse-vms-closed-captions-artifact-us-east-1-prod/closedCaptions/d01323e1-6e1a-4943-8116-c987dbea2ee3.vtt"
+      },
+      {
+        "type": "videos_for_this_product",
+        "id": "amzn1.vse.video.04a2995e89e54b1ba47c781ae5b2f52b",
+        "product_asin": "B073JYC4XM",
+        "parent_asin": "B073JYC4XM",
+        "related_products": "B08GYKNCCP,B08CLNX58K,B08KB38516",
+        "title": "SanDisk Ultra MicroSDXC Card - REVIEW",
+        "profile_image_url": "https://m.media-amazon.com/images/I/51tr8jrSl-L._CR0,0,500,500_._FMjpg_._SL34_.jpg",
+        "profile_link": "/shop/evolvingrealest",
+        "public_name": "BlipMatch Reviews",
+        "vendor_code": "evolvingrealest:shop",
+        "vendor_name": "BlipMatch Reviews",
+        "vendor_tracking_id": "kjvilleneuve-20",
+        "video_image_url": "https://m.media-amazon.com/images/I/B1svx8b87xL._CR3,0,1914,1080_SR684,386_.png",
+        "video_image_url_unchanged": "https://m.media-amazon.com/images/I/B1svx8b87xL.png",
+        "video_image_width": "1920",
+        "video_image_height": "1080",
+        "video_image_extension": "png",
+        "video_url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/9e5208b4-ed19-43fc-8b60-0302e499e00e/default.jobtemplate.hls.m3u8",
+        "video_previews": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/26722837-852c-407a-a758-d22447285fba/videopreview.jobtemplate.mp4.342X192P_20HZ_350KBPS_VER_1_0.mp4,342X192P_20HZ_350KBPS_VER_1_0,video/mp4,https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/26722837-852c-407a-a758-d22447285fba/590ca639-1183-41a5-9b62-32a637b07371/04a2995e89e54b1ba47c781ae5b2f52b_0-100-0-100_gandalf_preview.m3u8,gandalf,application/x-mpegURL",
+        "video_mime_type": "application/x-mpegURL",
+        "duration": "1:49",
+        "closed_captions": "en,https://m.media-amazon.com/images/S/vse-vms-closed-captions-artifact-us-east-1-prod/closedCaptions/75d1ac13-ed83-4013-abbf-ef3a135a5c66.vtt"
+      },
+      {
+        "type": "videos_for_this_product",
+        "id": "amzn1.vse.video.0213202483b04138926ee88d1588021d",
+        "product_asin": "B073JYC4XM",
+        "parent_asin": "B073JYC4XM",
+        "title": "The card doesn't corrupt",
+        "profile_image_url": "https://m.media-amazon.com/images/I/D15kU0DGAzL._CR1555,295,2357,2356_._FMjpg_._SL34_.jpg",
+        "profile_link": "/shop/kpboix99",
+        "public_name": "Joe",
+        "vendor_code": "kpboix99:shop",
+        "vendor_name": "Joe",
+        "vendor_tracking_id": "onamzjunim-20",
+        "video_image_url": "https://m.media-amazon.com/images/I/41AKnW4PBoL._CR1,0,638,360_SR342,193_.jpg",
+        "video_image_url_unchanged": "https://m.media-amazon.com/images/I/41AKnW4PBoL.jpg",
+        "video_image_width": "640",
+        "video_image_height": "360",
+        "video_image_extension": "jpg",
+        "video_url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/e980376f-c42c-4b0e-bff9-086d50a31695/default.jobtemplate.hls.m3u8",
+        "video_previews": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/fe491bdd-07ce-4dbf-ad88-0d91f84f4999/videopreview.jobtemplate.mp4.default.mp4,342X192P_20HZ_350KBPS_VER_1_0,video/mp4,https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/fe491bdd-07ce-4dbf-ad88-0d91f84f4999/videopreview.jobtemplate.mp4.default.mp4,default,video/mp4,https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/fe491bdd-07ce-4dbf-ad88-0d91f84f4999/cf620d10-e35b-45b3-b153-c2f771c97cde/0213202483b04138926ee88d1588021d_0-100-0-100_gandalf_preview.m3u8,gandalf,application/x-mpegURL",
+        "video_mime_type": "application/x-mpegURL",
+        "duration": "0:35",
+        "closed_captions": "en,https://m.media-amazon.com/images/S/vse-vms-closed-captions-artifact-us-east-1-prod/closedCaptions/69a547c7-41c8-4b0e-9a1a-74d76381f71d.vtt"
+      },
+      {
+        "type": "videos_for_this_product",
+        "id": "amzn1.vse.video.02e54e2ca11b47c9af18aa37a11c81ed",
+        "product_asin": "B073JYC4XM",
+        "parent_asin": "B073JYC4XM",
+        "related_products": "B0BFJWCYTL,B07XLGBYM3,B08CLNX58K",
+        "title": "Will it Work With a Nintendo Switch??",
+        "profile_image_url": "https://images-na.ssl-images-amazon.com/images/S/influencer-profile-image-prod/logo/authoralyssaclay_1673545904736_original._FMjpg_._SL34_.jpeg",
+        "profile_link": "/shop/authoralyssaclay",
+        "public_name": "A & J Productions LLC",
+        "vendor_code": "authoralyssaclay:shop",
+        "vendor_name": "A & J Productions LLC",
+        "vendor_tracking_id": "onamzalys0081-20",
+        "video_image_url": "https://m.media-amazon.com/images/I/51aTW0KrjgL._CR1,0,638,360_SR342,193_.jpg",
+        "video_image_url_unchanged": "https://m.media-amazon.com/images/I/51aTW0KrjgL.jpg",
+        "video_image_width": "640",
+        "video_image_height": "360",
+        "video_image_extension": "jpg",
+        "video_url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/a425c4c7-541d-4402-aad6-72a832e98d47/default.jobtemplate.hls.m3u8",
+        "video_previews": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/76d950cc-967a-43d9-8611-df39c52e2372/videopreview.jobtemplate.mp4.342X192P_20HZ_350KBPS_VER_1_0.mp4,342X192P_20HZ_350KBPS_VER_1_0,video/mp4,https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/76d950cc-967a-43d9-8611-df39c52e2372/592d1b72-7880-4f5d-b503-a923c332c45f/02e54e2ca11b47c9af18aa37a11c81ed_0-100-0-100_gandalf_preview.m3u8,gandalf,application/x-mpegURL",
+        "video_mime_type": "application/x-mpegURL",
+        "duration": "1:21",
+        "closed_captions": "en,https://m.media-amazon.com/images/S/vse-vms-closed-captions-artifact-us-east-1-prod/closedCaptions/24019e63-b842-4b10-a622-a7af05a8bc1e.vtt"
+      },
+      {
+        "type": "videos_for_this_product",
+        "id": "amzn1.productreview.RD8K170S35L0R",
+        "product_asin": "B073JYC4XM",
+        "parent_asin": "B073JYC4XM",
+        "title": "SanDisk all the way",
+        "profile_image_url": "https://m.media-amazon.com/images/S/amazon-avatars-global/9577364f-6a99-4553-a70e-456b3b67648b._CR109%2C0%2C281%2C281_SX460_._SL34_.jpg",
+        "profile_link": "/gp/profile/amzn1.account.AHYTRX25H3ENPHBZ65C7N3NRPH3A",
+        "public_name": "Linkanity",
+        "vendor_code": "AOD60",
+        "vendor_name": "Linkanity",
+        "video_image_url": "https://m.media-amazon.com/images/I/61TDg41Q-IL._CR3,0,1914,1080_SR684,386_.jpg",
+        "video_image_url_unchanged": "https://m.media-amazon.com/images/I/61TDg41Q-IL.jpg",
+        "video_image_width": "1920",
+        "video_image_height": "1080",
+        "video_image_extension": "jpg",
+        "video_url": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/0a6dcde3-8190-4e93-b563-07a03286f1d1/default.jobtemplate.hls.m3u8",
+        "video_previews": "https://m.media-amazon.com/images/S/vse-vms-transcoding-artifact-us-east-1-prod/33f8d6b2-5ab4-4fc9-8f2a-cc0398d5454f/videopreview.jobtemplate.mp4.342X192P_20HZ_350KBPS_VER_1_0.mp4,342X192P_20HZ_350KBPS_VER_1_0,video/mp4",
+        "video_mime_type": "application/x-mpegURL",
+        "duration": "0:16",
+        "closed_captions": "en,https://m.media-amazon.com/images/S/vse-vms-closed-captions-artifact-us-east-1-prod/closedCaptions/13f04574-7d73-4304-af8f-e6439cf14f85.vtt"
+      }
+    ],
+    "is_bundle": false,
+    "feature_bullets": [
+      "Ideal for Android Smartphones and Tablets. Certified to work with Chromebooks. (This product has been certified to meet Google’s compatibility standards. Chromebook and the “Works with Chromebook” badge are trademarks of Google LLC.)",
+      "Capacities up to 512GB (1GB=1,000,000,000 bytes. Actual user storage less) to store even more hours of Full HD video (Approximations; results and Full HD (1920x1080) video support may vary based on host device, file attributes and other factors.)",
+      "Up to 100MB/s transfer read speed (Based on internal testing; Performance may be lower depending on host device, interface, usage conditions and other factors.) lets you move up to 1000 photos in a minute (Based on 4.1GB transfer of photos (Average file 3.5MB) with USB 3.0 reader. Results may vary based on host device, file attributes and other factors.)",
+      "Load apps faster with A1-rated performance (A1 performance is 1500 read IOPS, 500 write IOPS. Based on internal testing. Results may vary based on host device, app type and other factors.)",
+      "Class 10 for Full HD video recording and playback (Full HD (1920x1080) video support may vary based upon host device, file attributes, and other factors.)",
+      "SanDisk Memory Zone app for easy file management (Download and Installation Required)",
+      "Order with your Alexa enabled device. Just ask \"Alexa, order SanDisk microSD.\""
+    ],
+    "feature_bullets_count": 7,
+    "feature_bullets_flat": "Order with your Alexa enabled device. Just ask \"Alexa, order SanDisk microSD.\". SanDisk Memory Zone app for easy file management (Download and Installation Required). Class 10 for Full HD video recording and playback (Full HD (1920x1080) video support may vary based upon host device, file attributes, and other factors.). Load apps faster with A1-rated performance (A1 performance is 1500 read IOPS, 500 write IOPS. Based on internal testing. Results may vary based on host device, app type and other factors.). Up to 100MB/s transfer read speed (Based on internal testing; Performance may be lower depending on host device, interface, usage conditions and other factors.) lets you move up to 1000 photos in a minute (Based on 4.1GB transfer of photos (Average file 3.5MB) with USB 3.0 reader. Results may vary based on host device, file attributes and other factors.). Capacities up to 512GB (1GB=1,000,000,000 bytes. Actual user storage less) to store even more hours of Full HD video (Approximations; results and Full HD (1920x1080) video support may vary based on host device, file attributes and other factors.). Ideal for Android Smartphones and Tablets. Certified to work with Chromebooks. (This product has been certified to meet Google’s compatibility standards. Chromebook and the “Works with Chromebook” badge are trademarks of Google LLC.).",
+    "bestsellers_rank": [
+      {
+        "rank": 226,
+        "category": "Micro SD Memory Cards",
+        "link": "https://www.amazon.com/gp/bestsellers/pc/3015433011/ref=pd_zg_hrsr_pc"
+      }
+    ],
+    "a_plus_content": {
+      "has_a_plus_content": true,
+      "has_brand_story": false,
+      "all_images": [
+        {
+          "link": "https://m.media-amazon.com/images/S/aplus-media/vc/c0af64bc-d343-49fc-9344-b21e855e5c9b._CR0,0,1466,601_PT0_SX1464__.jpg",
+          "name": " "
+        },
+        {
+          "link": "https://m.media-amazon.com/images/S/aplus-media/vc/8fda6763-085c-4990-888a-8e5f368360ab._CR0,0,1466,601_PT0_SX1464__.jpg",
+          "name": " "
+        },
+        {
+          "link": "https://m.media-amazon.com/images/S/aplus-media/vc/9d2bc6ed-54a1-4b9a-9564-9ae27ac62230.__CR0,0,1466,601_PT0_SX1464_V1___.jpg",
+          "name": "m4_Desktop"
+        },
+        {
+          "link": "https://m.media-amazon.com/images/S/aplus-media/vc/d8c9d5ef-44b3-4fae-8d32-b9c8ae552e16._CR0,0,1466,601_PT0_SX1464__.jpg",
+          "name": ""
+        },
+        {
+          "link": "https://m.media-amazon.com/images/S/aplus-media/vc/14ceef52-b6ca-4916-926b-5c817247963b._CR0,0,1464,600_PT0_SX1464__.jpg",
+          "name": " "
+        },
+        {
+          "link": "https://m.media-amazon.com/images/S/aplus-media/vc/c71fbc93-b059-4393-9167-bc3fc2530506._CR0,0,1464,600_PT0_SX1464__.jpg",
+          "name": " "
+        },
+        {
+          "link": "https://m.media-amazon.com/images/S/aplus-media/vc/df6d15e1-3c13-4f59-8cef-f429c659b580._CR0,0,1464,600_PT0_SX1464__.jpg",
+          "name": " "
+        },
+        {
+          "link": "https://m.media-amazon.com/images/S/aplus-media/vc/4ede99e3-5a39-4cda-b965-9b6506bee829._CR0,0,488,700_PT0_SX488__.jpg",
+          "name": " "
+        },
+        {
+          "link": "https://m.media-amazon.com/images/S/aplus-media/vc/2a386f49-8ed2-4b9e-a8f7-b1cc1972bdad.__CR0,0,1000,1434_PT0_SX488_V1___.jpg",
+          "name": "1"
+        }
+      ],
+      "third_party": false
+    },
+    "buybox_winner": {
+      "maximum_order_quantity": {
+        "value": 30,
+        "hard_maximum": true
+      },
+      "price_only_available_in_cart": false,
+      "mixed_offers_count": 4,
+      "mixed_offers_from": {
+        "symbol": "$",
+        "value": 35,
+        "currency": "USD",
+        "raw": "FREE Shipping on orders over $35.00 shipped by Amazon."
+      },
+      "trade_in_and_save": true,
+      "protection_plans": [
+        {
+          "name": "2-year Photo and Data Recovery Plan",
+          "duration_months": 24,
+          "price": {
+            "value": "3.99",
+            "billing_type": "one_time",
+            "currency": "USD"
+          }
+        },
+        {
+          "name": "3-year Photo and Data Recovery Plan",
+          "duration_months": 36,
+          "price": {
+            "value": "4.99",
+            "billing_type": "one_time",
+            "currency": "USD"
+          }
+        }
+      ],
+      "return_policy": {
+        "duration_days": 30,
+        "type": "refund/replacement"
+      },
+      "is_prime": true,
+      "is_prime_exclusive_deal": false,
+      "is_amazon_fresh": false,
+      "condition": {
+        "is_new": true
+      },
+      "availability": {
+        "type": "in_stock",
+        "raw": "In Stock",
+        "dispatch_days": 1
+      },
+      "fulfillment": {
+        "type": "p2",
+        "standard_delivery": {
+          "date": "Friday, July 24",
+          "name": "FREE"
+        },
+        "fastest_delivery": {
+          "date": "Thursday, July 23",
+          "name": "Or fastest delivery Thursday, July 23"
+        },
+        "is_sold_by_amazon": false,
+        "is_fulfilled_by_amazon": true,
+        "is_fulfilled_by_third_party": false,
+        "is_sold_by_third_party": true,
+        "third_party_seller": {
+          "name": "First Choice Online",
+          "link": "https://www.amazon.com/gp/help/seller/at-a-glance.html/ref=dp_merchant_link?ie=UTF8&seller=A35BKAA6VXTYCT&asin=B073JYC4XM&ref_=dp_merchant_link&isAmazonFulfilled=1",
+          "id": "A35BKAA6VXTYCT"
+        }
+      },
+      "price": {
+        "symbol": "$",
+        "value": 35.95,
+        "currency": "USD",
+        "raw": "$35.95"
+      },
+      "shipping": {
+        "raw": "FREE"
+      }
+    },
+    "specifications": [
+      {
+        "name": "Brand",
+        "value": "Sandisk"
+      },
+      {
+        "name": "Model Name",
+        "value": "SanDisk Ultra 128GB microSDXC UHS-I card with Adapter - SDSQUAR-128G-GN6MA"
+      },
+      {
+        "name": "Flash Memory Type",
+        "value": "Micro SD"
+      },
+      {
+        "name": "Memory Storage Capacity",
+        "value": "128 GB"
+      },
+      {
+        "name": "Compatible Devices",
+        "value": "Smartphone, Tablet"
+      },
+      {
+        "name": "Additional Features",
+        "value": "Drop Proof, Temperature Proof, Water Proof, X Ray Proof"
+      },
+      {
+        "name": "Read Speed",
+        "value": "100 Megabytes Per Second"
+      },
+      {
+        "name": "Media Speed",
+        "value": "40x"
+      },
+      {
+        "name": "Hardware Connectivity",
+        "value": "microSDXC"
+      },
+      {
+        "name": "Secure Digital Association Speed Class",
+        "value": "Class 10"
+      },
+      {
+        "name": "Item Weight",
+        "value": "4.54 g"
+      },
+      {
+        "name": "Item Dimensions L x W",
+        "value": "0.03\"L x 0.59\"W"
+      },
+      {
+        "name": "Item Dimensions D x W x H",
+        "value": "1\"D x 3\"W x 8\"H"
+      },
+      {
+        "name": "Warranty Type",
+        "value": "Manufactured warranty"
+      },
+      {
+        "name": "Color",
+        "value": "Grey, Grey,Red"
+      },
+      {
+        "name": "Model Number",
+        "value": "SDSQUAR-128G-GN6MA"
+      },
+      {
+        "name": "Manufacturer",
+        "value": "Western Digital Technologies Inc."
+      },
+      {
+        "name": "UPC",
+        "value": "619659160395"
+      },
+      {
+        "name": "Global Trade Identification Number",
+        "value": "00619659160395, 00880924867213"
+      },
+      {
+        "name": "Mfr Part Number",
+        "value": "SDSQUAR-128G-GN6MA"
+      },
+      {
+        "name": "Item Part Number",
+        "value": "SDSQUAR-128G-GN6MA"
+      },
+      {
+        "name": "Item Type Name",
+        "value": "Sandisk SDSQUAR-128G-GN6MA Ultra 128GB Micro SDXC UHS-I Card with Adapter, 100MB/s U1 A1"
+      },
+      {
+        "name": "Built-In Media",
+        "value": "SD adapter, SanDisk Ultra microSDXC UHS-I Card"
+      },
+      {
+        "name": "Warranty Description",
+        "value": "10-year limited"
+      },
+      {
+        "name": "Best Sellers Rank",
+        "value": "#226 in Micro SD Memory Cards"
+      },
+      {
+        "name": "ASIN",
+        "value": "B073JYC4XM"
+      },
+      {
+        "name": "Customer Reviews",
+        "value": "4.7    4.7 out of 5 stars         (220,517)           4.7 out of 5 stars"
+      },
+      {
+        "name": "GTIN",
+        "value": "619659160395"
+      }
+    ],
+    "specifications_flat": "GTIN: 619659160395. Customer Reviews: 4.7    4.7 out of 5 stars         (220,517)           4.7 out of 5 stars. ASIN: B073JYC4XM. Best Sellers Rank: #226 in Micro SD Memory Cards. Warranty Description: 10-year limited. Built-In Media: SD adapter, SanDisk Ultra microSDXC UHS-I Card. Item Type Name: Sandisk SDSQUAR-128G-GN6MA Ultra 128GB Micro SDXC UHS-I Card with Adapter, 100MB/s U1 A1. Item Part Number: SDSQUAR-128G-GN6MA. Mfr Part Number: SDSQUAR-128G-GN6MA. Global Trade Identification Number: 00619659160395, 00880924867213. UPC: 619659160395. Manufacturer: Western Digital Technologies Inc. Model Number: SDSQUAR-128G-GN6MA. Color: Grey, Grey,Red. Warranty Type: Manufactured warranty. Item Dimensions D x W x H: 1\"D x 3\"W x 8\"H. Item Dimensions L x W: 0.03\"L x 0.59\"W. Item Weight: 4.54 g. Secure Digital Association Speed Class: Class 10. Hardware Connectivity: microSDXC. Media Speed: 40x. Read Speed: 100 Megabytes Per Second. Additional Features: Drop Proof, Temperature Proof, Water Proof, X Ray Proof. Compatible Devices: Smartphone, Tablet. Memory Storage Capacity: 128 GB. Flash Memory Type: Micro SD. Model Name: SanDisk Ultra 128GB microSDXC UHS-I card with Adapter - SDSQUAR-128G-GN6MA. Brand: Sandisk.",
+    "recent_sales": "50+ bought in past month",
+    "gift_guide_badge": {
+      "badge_text": "50+ bought in past month"
+    },
+    "color": "Grey, Grey,Red",
+    "manufacturer": "Western Digital Technologies Inc.",
+    "weight": "4.54 g",
+    "model_number": "SDSQUAR-128G-GN6MA",
+    "bestsellers_rank_flat": "Category: Micro SD Memory Cards | Rank: 226",
+    "whats_in_the_box": [
+      "SanDisk Ultra microSDXC UHS-I Card",
+      "SD adapter"
+    ]
+  },
+  "brand_store": {
+    "id": "CD971F4B-EE23-4EA1-96E3-567678AC9C0A",
+    "link": "https://www.amazon.com/stores/Sandisk/page/CD971F4B-EE23-4EA1-96E3-567678AC9C0A"
+  },
+  "newer_model": {
+    "title": "SANDISK 128GB Ultra microSD UHS-I Card - Up to 195MB/s Read Speed, Full HD Video, V10, U1, C10, A5 - SDSQUJQ-128G-GZ6MA (754)",
+    "asin": "B0G8L1RNPF",
+    "link": "https://www.amazon.com/SANDISK-128GB-Ultra-microSD-UHS-I-dp-B0G8L1RNPF/dp/B0G8L1RNPF/ref=dp_ob_image_ce",
+    "image": "https://m.media-amazon.com/images/I/51UsBWNwbPL._SR75,75_.jpg"
+  }
+}

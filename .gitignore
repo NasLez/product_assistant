@@ -1,0 +1,17 @@
+.env
+.idea/
+.vscode/
+*.iml
+*.log
+
+backend/target/
+frontend/node_modules/
+frontend/dist/
+
+mysql-data/
+.DS_Store
+Thumbs.db
+
+/.agents/
+/frontend/package-lock.json
+/AI工程师实习生笔试题.pdf

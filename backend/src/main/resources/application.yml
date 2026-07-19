@@ -1,0 +1,72 @@
+spring:
+  application:
+    name: product-assistant
+  main:
+    web-application-type: servlet
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/product_assistant?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${SPRING_DATASOURCE_USERNAME:product_app}
+    password: ${SPRING_DATASOURCE_PASSWORD:replace_me}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    default-property-inclusion: non_null
+    time-zone: UTC
+  sql:
+    init:
+      mode: never
+
+server:
+  port: 8080
+  shutdown: graceful
+  forward-headers-strategy: framework
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+
+logging:
+  pattern:
+    level: "%5p [requestId:%X{requestId:-}]"
+  level:
+    root: DEBUG
+    org.springframework.web.reactive.function.client.ExchangeFunctions: WARN
+
+app:
+  rainforest:
+    base-url: ${RAINFOREST_BASE_URL:https://api.rainforestapi.com}
+    api-key: ${RAINFOREST_API_KEY:}
+    connect-timeout: 10s
+    read-timeout: 60s
+    queue-timeout: 10s
+  deepseek:
+    base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
+    api-key: ${DEEPSEEK_API_KEY:}
+    model: ${DEEPSEEK_MODEL:deepseek-v4-pro}
+    connect-timeout: 10s
+    read-timeout: 60s
+  cache:
+    product-maximum-size: 100
+    product-ttl: 60000000h
+    analysis-maximum-size: 200
+    analysis-ttl: 24000000000000h
+  analysis:
+    prompt-version: v1
+    max-feature-count: 12
+    max-specification-count: 24
+    max-item-length: 500
+

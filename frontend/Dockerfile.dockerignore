@@ -1,0 +1,9 @@
+**
+!frontend/
+!frontend/dist/
+!frontend/dist/**
+!frontend/Dockerfile
+!deploy/
+!deploy/nginx/
+!deploy/nginx/default.conf
+
