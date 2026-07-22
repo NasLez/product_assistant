@@ -5,7 +5,7 @@
 .vscode
 **/target
 **/node_modules
-**/dist
+deploy/tls/*.pem
+deploy/tls/*.key
 docs
 *.log
-

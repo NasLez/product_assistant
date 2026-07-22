@@ -2,7 +2,9 @@ package com.example.productassistant.analysis;
 
 import java.time.LocalDateTime;
 
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -18,7 +20,11 @@ public class AnalysisResultEntity {
     private String useCases;
     private String painPoints;
     private String coreSellingPoints;
+    @TableField(updateStrategy = FieldStrategy.ALWAYS)
     private String videoScript;
+    private byte[] videoScriptCiphertext;
+    private byte[] videoScriptIv;
+    private String videoScriptKeyVersion;
     private String aiRawJson;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -41,6 +47,22 @@ public class AnalysisResultEntity {
     public void setCoreSellingPoints(String coreSellingPoints) { this.coreSellingPoints = coreSellingPoints; }
     public String getVideoScript() { return videoScript; }
     public void setVideoScript(String videoScript) { this.videoScript = videoScript; }
+    public byte[] getVideoScriptCiphertext() {
+        return videoScriptCiphertext == null ? null : videoScriptCiphertext.clone();
+    }
+    public void setVideoScriptCiphertext(byte[] videoScriptCiphertext) {
+        this.videoScriptCiphertext = videoScriptCiphertext == null ? null : videoScriptCiphertext.clone();
+    }
+    public byte[] getVideoScriptIv() {
+        return videoScriptIv == null ? null : videoScriptIv.clone();
+    }
+    public void setVideoScriptIv(byte[] videoScriptIv) {
+        this.videoScriptIv = videoScriptIv == null ? null : videoScriptIv.clone();
+    }
+    public String getVideoScriptKeyVersion() { return videoScriptKeyVersion; }
+    public void setVideoScriptKeyVersion(String videoScriptKeyVersion) {
+        this.videoScriptKeyVersion = videoScriptKeyVersion;
+    }
     public String getAiRawJson() { return aiRawJson; }
     public void setAiRawJson(String aiRawJson) { this.aiRawJson = aiRawJson; }
     public LocalDateTime getCreatedAt() { return createdAt; }
@@ -48,4 +70,3 @@ public class AnalysisResultEntity {
     public LocalDateTime getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 }
-

@@ -1,8 +1,12 @@
 package com.example.productassistant.analysis;
 
+import java.time.DateTimeException;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
@@ -12,6 +16,10 @@ import com.example.productassistant.amazon.AmazonUrlParser;
 import com.example.productassistant.api.ProductAnalysisView;
 import com.example.productassistant.config.AppProperties;
 import com.example.productassistant.config.CacheConfig;
+import com.example.productassistant.crypto.EncryptedText;
+import com.example.productassistant.crypto.VideoScriptCipher;
+import com.example.productassistant.crypto.VideoScriptEncryptionException;
+import com.example.productassistant.crypto.VideoScriptEncryptionProperties;
 import com.example.productassistant.persistence.JsonStringCodec;
 import com.example.productassistant.product.NormalizedProduct;
 import com.example.productassistant.product.ProductSnapshotEntity;
@@ -20,6 +28,7 @@ import com.example.productassistant.product.ProductSnapshotResult;
 import com.example.productassistant.product.ProductSnapshotService;
 import com.example.productassistant.rainforest.DemoRainforestResponseProvider;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.dao.DuplicateKeyException;
@@ -36,6 +45,8 @@ public class AnalysisApplicationService {
     private final AnalysisGenerationService generationService;
     private final DemoRainforestResponseProvider demoResponseProvider;
     private final AppProperties properties;
+    private final VideoScriptEncryptionProperties encryptionProperties;
+    private final VideoScriptCipher videoScriptCipher;
     private final JsonStringCodec jsonCodec;
     private final TransactionTemplate transactionTemplate;
     private final Cache analysisCache;
@@ -49,6 +60,8 @@ public class AnalysisApplicationService {
             AnalysisGenerationService generationService,
             DemoRainforestResponseProvider demoResponseProvider,
             AppProperties properties,
+            VideoScriptEncryptionProperties encryptionProperties,
+            VideoScriptCipher videoScriptCipher,
             JsonStringCodec jsonCodec,
             TransactionTemplate transactionTemplate,
             CacheManager cacheManager) {
@@ -59,6 +72,8 @@ public class AnalysisApplicationService {
         this.generationService = generationService;
         this.demoResponseProvider = demoResponseProvider;
         this.properties = properties;
+        this.encryptionProperties = encryptionProperties;
+        this.videoScriptCipher = videoScriptCipher;
         this.jsonCodec = jsonCodec;
         this.transactionTemplate = transactionTemplate;
         this.analysisCache = Objects.requireNonNull(cacheManager.getCache(CacheConfig.ANALYSIS_CACHE));
@@ -180,8 +195,15 @@ public class AnalysisApplicationService {
             entity.setUseCases(jsonCodec.write(generated.analysis().useCases()));
             entity.setPainPoints(jsonCodec.write(generated.analysis().painPoints()));
             entity.setCoreSellingPoints(jsonCodec.write(generated.analysis().coreSellingPoints()));
-            entity.setVideoScript(generated.analysis().videoScript());
-            entity.setAiRawJson(jsonCodec.write(generated.rawResponse()));
+            String keyVersion = encryptionProperties.getActiveKeyVersion().trim();
+            EncryptedText encryptedScript = videoScriptCipher.encrypt(
+                    generated.analysis().videoScript(),
+                    associatedData(productId, entity.getModel(), entity.getPromptVersion(), keyVersion));
+            entity.setVideoScript(null);
+            entity.setVideoScriptCiphertext(encryptedScript.ciphertext());
+            entity.setVideoScriptIv(encryptedScript.iv());
+            entity.setVideoScriptKeyVersion(encryptedScript.keyVersion());
+            entity.setAiRawJson(jsonCodec.write(aiAuditMetadata(generated.rawResponse())));
 
             if (existing != null) {
                 analysisMapper.updateById(entity);
@@ -210,7 +232,76 @@ public class AnalysisApplicationService {
         List<ProductAnalysis.SellingPoint> points = jsonCodec.read(
                 entity.getCoreSellingPoints(),
                 new TypeReference<List<ProductAnalysis.SellingPoint>>() {});
-        return new ProductAnalysis(targetUsers, useCases, painPoints, points, entity.getVideoScript());
+        return new ProductAnalysis(targetUsers, useCases, painPoints, points, readVideoScript(entity));
+    }
+
+    private String readVideoScript(AnalysisResultEntity entity) {
+        byte[] ciphertext = entity.getVideoScriptCiphertext();
+        byte[] iv = entity.getVideoScriptIv();
+        String keyVersion = entity.getVideoScriptKeyVersion();
+        if (ciphertext != null) {
+            if (iv == null || keyVersion == null || keyVersion.isBlank()) {
+                throw new VideoScriptEncryptionException();
+            }
+            EncryptedText encrypted = new EncryptedText(ciphertext, iv, keyVersion);
+            return videoScriptCipher.decrypt(
+                    encrypted,
+                    associatedData(
+                            entity.getProductSnapshotId(),
+                            entity.getModel(),
+                            entity.getPromptVersion(),
+                            keyVersion));
+        }
+        if (entity.getVideoScript() != null) {
+            return entity.getVideoScript();
+        }
+        throw new VideoScriptEncryptionException();
+    }
+
+    public static String associatedData(Long productId, String model, String promptVersion, String keyVersion) {
+        return "analysis-result:%d:%s:%s:%s".formatted(
+                productId,
+                model,
+                promptVersion,
+                keyVersion);
+    }
+
+    private Map<String, Object> aiAuditMetadata(JsonNode rawResponse) {
+        Map<String, Object> metadata = new LinkedHashMap<>();
+        metadata.put("responseContentStored", false);
+        copyTextMetadata(rawResponse, metadata, "id", "providerResponseId");
+        copyTextMetadata(rawResponse, metadata, "model", "providerModel");
+        copyTextMetadata(rawResponse, metadata, "system_fingerprint", "systemFingerprint");
+        if (rawResponse != null && rawResponse.path("usage").isObject()) {
+            metadata.put("usage", rawResponse.path("usage"));
+        }
+        if (rawResponse != null && rawResponse.path("choices").isArray()) {
+            List<String> finishReasons = new java.util.ArrayList<>();
+            for (JsonNode choice : rawResponse.path("choices")) {
+                String finishReason = choice.path("finish_reason").asText("");
+                if (!finishReason.isBlank()) {
+                    finishReasons.add(finishReason);
+                }
+            }
+            if (!finishReasons.isEmpty()) {
+                metadata.put("finishReasons", List.copyOf(finishReasons));
+            }
+        }
+        return metadata;
+    }
+
+    private void copyTextMetadata(
+            JsonNode source,
+            Map<String, Object> target,
+            String sourceName,
+            String targetName) {
+        if (source == null) {
+            return;
+        }
+        String value = source.path(sourceName).asText("");
+        if (!value.isBlank()) {
+            target.put(targetName, value);
+        }
     }
 
     private ProductAnalysisView toView(
@@ -266,8 +357,16 @@ public class AnalysisApplicationService {
         if (timestamp == null) {
             return false;
         }
-        LocalDateTime cutoff = LocalDateTime.now(ZoneOffset.UTC)
-                .minus(properties.getCache().getAnalysisTtl());
-        return !timestamp.isBefore(cutoff);
+        Duration ttl = properties.getCache().getAnalysisTtl();
+        if (ttl.isZero() || ttl.isNegative()) {
+            return false;
+        }
+        try {
+            LocalDateTime cutoff = LocalDateTime.now(ZoneOffset.UTC).minus(ttl);
+            return !timestamp.isBefore(cutoff);
+        } catch (DateTimeException | ArithmeticException overflow) {
+            // Positive TTL values beyond LocalDateTime's range intentionally do not expire.
+            return true;
+        }
     }
 }

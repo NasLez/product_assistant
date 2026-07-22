@@ -19,9 +19,10 @@
 - Java 21
 - Spring Boot 3.5.16
 - Spring MVC 入站接口
+- Spring Security 服务端 Session、CSRF 与 BCrypt 密码哈希
 - Spring WebClient 出站请求
 - MyBatis-Plus 3.5.17 Boot 3 starter
-- Jackson 2、Caffeine、MySQL Connector/J：版本由 Spring Boot 统一管理
+- Flyway、Jackson 2、Caffeine、MySQL Connector/J：版本由 Spring Boot 统一管理
 - MySQL 8.4 LTS
 
 ### 外部服务与本地控制
@@ -34,7 +35,7 @@
 ### 部署
 
 - Docker Compose v2
-- Nginx stable-alpine
+- Nginx stable-alpine，生产环境终止 TLS 1.2/1.3
 - 三个服务：`nginx`、`backend`、`mysql`
 
 ## Spring Boot 与 Rainforest 兼容性
@@ -54,8 +55,8 @@ Rainforest 不是 JVM 依赖，而是通过 HTTPS 调用的外部 REST API，因
 .
 ├─ backend/                 Spring Boot 后端
 ├─ frontend/                Vue 3 前端与 Nginx 构建文件
-├─ database/init.sql        MySQL 初始化结构
-├─ deploy/nginx/            Nginx 反向代理配置
+├─ deploy/nginx/            Nginx HTTP 配置与生产 HTTPS 模板
+├─ deploy/tls/              证书运行时挂载说明（证书和私钥不入库）
 ├─ docs/                    架构、API 和开发计划
 ├─ compose.yaml             三服务部署编排
 └─ .env.example             环境变量模板
@@ -67,26 +68,39 @@ Rainforest 不是 JVM 依赖，而是通过 HTTPS 调用的外部 REST API，因
 
 ```dotenv
 COMPOSE_PROJECT_NAME=product_assistant
-HTTP_PORT=8088
+PUBLIC_SERVER_NAME=example.com
+HTTP_PORT=80
+HTTPS_PORT=443
 MYSQL_DATABASE=product_assistant
 MYSQL_USER=product_app
 MYSQL_PASSWORD=随机生成的应用密码
 MYSQL_ROOT_PASSWORD=另一组随机 root 密码
-SPRING_PROFILES_ACTIVE=local
+SPRING_PROFILES_ACTIVE=prod
+SESSION_COOKIE_SECURE=true
+LOG_LEVEL_ROOT=INFO
 RAINFOREST_API_KEY=
 RAINFOREST_BASE_URL=https://api.rainforestapi.com
 DEEPSEEK_API_KEY=
 DEEPSEEK_BASE_URL=https://api.deepseek.com
 DEEPSEEK_MODEL=deepseek-v4-pro
+VIDEO_SCRIPT_ACTIVE_KEY_VERSION=v1
+VIDEO_SCRIPT_ENCRYPTION_KEYS=v1=32字节密钥的Base64编码
+VIDEO_SCRIPT_BACKFILL_ENABLED=false
+VIDEO_SCRIPT_BACKFILL_BATCH_SIZE=100
+AUTH_RATE_LIMIT_ATTEMPTS=10
+AUTH_RATE_LIMIT_WINDOW=10m
+POINT_RESERVATION_TIMEOUT=15m
 ```
 
-`.env` 已被 Git 忽略。任何 API key 都不得放入 `frontend` 目录或以 `VITE_` 前缀暴露给浏览器。
+`.env` 已被 Git 忽略。外部 API key、AES 密钥和证书私钥都不得放入 `frontend` 目录或以 `VITE_` 前缀暴露给浏览器。`VIDEO_SCRIPT_ENCRYPTION_KEYS` 支持逗号分隔的 `版本=Base64密钥` 映射；每个密钥解码后必须恰好 32 字节，活动版本必须存在于映射中。
+
+AES 密钥是所有 profile 的必需配置，因为本地生成的分析也不得把口播明文写入数据库。首次启动前可用 `openssl rand -base64 32` 生成 32-byte 随机密钥的 Base64 值，再把 `.env` 中的配置写成 `VIDEO_SCRIPT_ENCRYPTION_KEYS=v1=<生成值>`；不要复用示例占位值或把真实值提交到 Git。
 
 ## 本地开发
 
 ### 后端
 
-需要 Java 21、Maven 3.6.3+ 和可用的 MySQL 8 数据库。先选中目标数据库并执行 `database/init.sql`，再配置数据库及外部 API 环境变量。
+需要 Java 21、Maven 3.6.3+ 和可用的 MySQL 8 数据库。应用启动时由 Flyway 自动执行 `backend/src/main/resources/db/migration/` 中的版本化迁移，不再手工执行或维护 `database/init.sql`。
 
 ```shell
 cd backend
@@ -130,7 +144,7 @@ backend/target/product-assistant-0.0.1-SNAPSHOT.jar
 frontend/dist/
 ```
 
-两个 Dockerfile 都有专用的 `.dockerignore`，源码不会进入对应镜像的构建上下文。
+两个 Dockerfile 都只 `COPY` 上述已构建产物，不会在镜像内复制源码或执行编译；根目录 `.dockerignore` 还会排除 Secret、依赖目录、后端产物和无关文档。
 
 ## Docker Compose 部署
 
@@ -140,25 +154,51 @@ frontend/dist/
 docker compose up --build -d
 ```
 
-访问地址固定为 `http://localhost:8088/`。Compose 会自动读取项目根目录的 `.env`，无需在命令中传入任何参数。
+生产部署前将域名证书保存为 `deploy/tls/fullchain.pem`、私钥保存为 `deploy/tls/privkey.pem`，并在 `.env` 设置真实域名和 `SESSION_COOKIE_SECURE=true`。Compose 会映射 80/443，HTTP 自动跳转 HTTPS；访问地址为 `https://PUBLIC_SERVER_NAME/`。证书准备和续期要求见 [deploy/tls/README.md](deploy/tls/README.md)。
 
-当前 `.env` 使用 `local` profile，使三个容器在没有外部 API key 时也能正常启动并提供页面和健康检查。要实际提交商品分析，仍然必须在 `.env` 中填写有效的 `RAINFOREST_API_KEY` 和 `DEEPSEEK_API_KEY`；这两类凭据由外部平台签发，无法通过本地随机生成。
+生产 profile 要求有效的 Rainforest、DeepSeek、AES-256-GCM 密钥配置和 Secure Session Cookie。仅本地开发可以使用 `local` profile 与 `SESSION_COOKIE_SECURE=false`；此时应通过 Vite 开发代理访问，不应把该配置部署到公开网络。
 
 MySQL 必须通过 healthcheck 后 backend 才会启动；backend 的 `/actuator/health` 健康后 Nginx 才会启动。外部只能经 Nginx 访问业务 API，Actuator 不由 Nginx 对外代理。
 
 ## API
 
-- `POST /api/v1/product-analyses`：提交 Amazon 商品 URL，创建或读取分析。
-- `GET /api/v1/product-analyses/{id}`：读取已经保存的分析。
+- `GET /api/v1/auth/session`：读取登录状态、用户信息、积分并刷新 CSRF Cookie。
+- `POST /api/v1/auth/register`：注册邮箱账户，成功后赠送 10 积分。
+- `POST /api/v1/auth/login`：创建服务端 Session。
+- `POST /api/v1/auth/logout`：注销 Session 并刷新 CSRF 状态。
+- `POST /api/v1/product-analyses`：携带 UUID 格式 `X-Idempotency-Key` 提交 Amazon 商品 URL；成功返回分析和剩余积分。
+- `GET /api/v1/product-analyses/{id}`：仅允许拥有该分析访问记录的当前用户读取。
 
 详细契约见 [docs/api.md](docs/api.md)。
 
 ## 缓存与数据
 
-- 商品缓存：最多 100 条，写入后 6 小时过期。
-- 分析缓存：最多 200 条，写入后 24 小时过期。
-- MySQL 保存商品链接、归一化商品信息、Rainforest 原始 JSON、结构化分析和 DeepSeek 原始响应。
+- 商品缓存：最多 100 条；当前 `product-ttl: 60000000h`，在业务时间尺度上等同不按时间失效。
+- 分析缓存：最多 200 条；当前 `analysis-ttl: 24000000000000h`，数据库分析复用也使用同一时效判断，实际主要由容量淘汰或配置变更控制。
+- MySQL 保存商品链接、归一化商品信息、Rainforest 原始 JSON、结构化分析和白名单 AI 审计元数据；不持久化 `choices.message.content`，避免口播在审计列重复以明文出现。
 - 同一 Amazon 域名和 ASIN 共用商品快照；同一商品、模型和 prompt 版本共用分析结果。
+- 分析缓存不保存用户 ID、积分或 Session；用户访问权单独持久化。
+
+## 认证与积分
+
+- 密码以 BCrypt cost 12 单向哈希存储，不使用明文或可逆加密。
+- 浏览器使用服务端 Session；Session Cookie 为 HttpOnly、SameSite=Lax，生产环境同时启用 Secure。
+- SPA 从 `XSRF-TOKEN` Cookie 读取 CSRF Token，并通过 `X-XSRF-TOKEN` 请求头回传；密码、Session ID 和完整分析响应不写入浏览器持久存储。
+- 新用户注册时获得 10 积分并写入 `REGISTER_BONUS` 账本。每次成功返回分析扣 1 积分，包括 `LIVE`、`LOCAL_DEMO`、`DATABASE` 和 `CACHE` 来源。
+- 分析开始前原子预占积分；成功时结算并授予访问权，任一外部调用、校验、加密或保存失败时幂等退款。超过 15 分钟仍为 `RESERVED` 的异常记录由定时任务恢复。
+
+## 口播文案加密与密钥轮换
+
+口播文案使用服务端 AES-256-GCM 加密，每条记录使用独立 12-byte IV 和 128-bit Tag。AAD 固定为 `analysis-result:{productSnapshotId}:{model}:{promptVersion}:{keyVersion}`；数据库只保存密文、IV 和密钥版本，密钥仅来自后端 Secret 配置。分析保存和旧数据回填都会清除 AI 原始响应中的内容字段，只保留白名单审计元数据。
+
+轮换时先在 `VIDEO_SCRIPT_ENCRYPTION_KEYS` 保留旧版本并加入新版本，再把 `VIDEO_SCRIPT_ACTIVE_KEY_VERSION` 指向新版本。历史密钥必须保留到所有对应记录完成迁移或生命周期结束，禁止把密钥写入数据库、日志、镜像或前端。
+
+## Flyway 数据库升级
+
+- `V1__baseline_schema.sql` 是原有商品与分析表基线；空数据库依次执行 V1、V2，已有非空数据库在 V1 baseline 后执行 V2。
+- `V2__user_points_and_video_script_encryption.sql` 增加用户、积分账本、分析访问权和加密列，并暂时保留可空旧明文列用于迁移。
+- 上线前先备份 MySQL volume 或生成一致性 SQL dump。第一阶段发布后设置 `VIDEO_SCRIPT_BACKFILL_ENABLED=true` 完成旧文案加密回填，再核对未加密行和残留明文行都为 0。
+- 当前版本故意不包含 V3。只有回填与核对完成并再次备份后，才可在第二阶段版本创建 Flyway V3 删除旧明文列；不得绕过 Flyway 手工执行结构变更。
 
 ## 本地演示商品特判
 
@@ -176,7 +216,7 @@ https://www.amazon.com/dp/B073JYC4XM?th=1&psc=1
 
 ### 启动时报 API key 缺失
 
-`prod` profile 会拒绝在缺少 `RAINFOREST_API_KEY` 或 `DEEPSEEK_API_KEY` 时启动。默认 `.env` 使用 `local` profile，因此没有外部 API key 也不会阻止容器启动。
+所有 profile 都会拒绝空白、非法 Base64、非 32-byte 或缺少活动版本的 AES 密钥；`prod` 还会校验 `RAINFOREST_API_KEY`、`DEEPSEEK_API_KEY`、Secure Session Cookie，并拒绝非 HTTPS 的外部 API Base URL，避免凭据明文出站。检查 `.env` 是否仍为占位值、活动密钥版本是否存在，以及 Base64 解码后是否正好 32 字节。
 
 ### 返回 `RAINFOREST_BUSY`
 
@@ -194,6 +234,9 @@ Rainforest 没有返回标题或商品对象。请确认商品为公开可访问
 
 - 不跟随用户 URL、不抓取用户 URL、不允许 IP、localhost、凭据或非 443 端口。
 - Amazon 站点通过明确白名单验证。
+- Nginx 是公网 TLS 边界，后端 8080 端口不映射到宿主机；API 响应强制 `Cache-Control: no-store`。
+- Session/CSRF、登录限流、幂等积分账本和用户分析访问权共同保护业务接口。
+- 数据库不保存明文密码；仅口播文案使用带版本的 AES-256-GCM 对称加密。
 - API 错误只返回安全业务信息和 requestId，不返回堆栈或上游原始响应。
 - Actuator 只公开 `health` 和 `info`。
 - 当前 `Semaphore(1)` 只约束一个 backend 实例；扩展到多副本前必须替换为分布式限流。

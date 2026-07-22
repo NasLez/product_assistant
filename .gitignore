@@ -8,6 +8,9 @@ backend/target/
 frontend/node_modules/
 frontend/dist/
 
+deploy/tls/*.pem
+deploy/tls/*.key
+
 mysql-data/
 .DS_Store
 Thumbs.db

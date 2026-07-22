@@ -1,5 +1,7 @@
 package com.example.productassistant.product;
 
+import java.time.DateTimeException;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Objects;
@@ -132,10 +134,17 @@ public class ProductSnapshotService {
         if (entity == null || entity.getFetchedAt() == null) {
             return null;
         }
-        LocalDateTime cutoff = LocalDateTime.now(ZoneOffset.UTC)
-                .minus(properties.getCache().getProductTtl());
-        if (entity.getFetchedAt().isBefore(cutoff)) {
+        Duration ttl = properties.getCache().getProductTtl();
+        if (ttl.isZero() || ttl.isNegative()) {
             return null;
+        }
+        try {
+            LocalDateTime cutoff = LocalDateTime.now(ZoneOffset.UTC).minus(ttl);
+            if (entity.getFetchedAt().isBefore(cutoff)) {
+                return null;
+            }
+        } catch (DateTimeException | ArithmeticException overflow) {
+            // Positive TTL values beyond LocalDateTime's range intentionally do not expire.
         }
         NormalizedProduct product = jsonCodec.read(entity.getNormalizedJson(), NormalizedProduct.class);
         return new ProductSnapshotResult(entity, product);

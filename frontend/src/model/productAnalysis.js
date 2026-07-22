@@ -31,3 +31,16 @@ export function normalizeProductAnalysis(value) {
   }
 }
 
+export function normalizeAnalysisSubmission(value) {
+  if (!value || typeof value !== 'object' || !value.result) {
+    throw new Error('服务返回了无法识别的提交结果')
+  }
+
+  const remainingPoints = Number(value.remainingPoints)
+  return {
+    result: normalizeProductAnalysis(value.result),
+    remainingPoints: Number.isFinite(remainingPoints) && remainingPoints >= 0
+      ? Math.trunc(remainingPoints)
+      : null,
+  }
+}

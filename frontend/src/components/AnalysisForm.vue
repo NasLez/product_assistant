@@ -4,6 +4,7 @@ import { computed, ref } from 'vue'
 const props = defineProps({
   modelValue: { type: String, default: '' },
   loading: { type: Boolean, default: false },
+  remainingPoints: { type: Number, default: 0 },
 })
 
 const emit = defineEmits(['update:modelValue', 'submit'])
@@ -14,6 +15,8 @@ const value = computed({
   set: (next) => emit('update:modelValue', next),
 })
 
+const hasPoints = computed(() => props.remainingPoints > 0)
+
 const validationMessage = computed(() => {
   if (!touched.value) return ''
   if (!value.value.trim()) return '请粘贴一个 Amazon 商品链接'
@@ -23,7 +26,7 @@ const validationMessage = computed(() => {
 
 function submit() {
   touched.value = true
-  if (!validationMessage.value && !props.loading) emit('submit')
+  if (!validationMessage.value && !props.loading && hasPoints.value) emit('submit')
 }
 </script>
 
@@ -31,7 +34,7 @@ function submit() {
   <form class="analysis-form" @submit.prevent="submit">
     <div class="analysis-form__label-row">
       <label for="amazon-url">Amazon 商品链接</label>
-      <span>支持 21 个 Amazon 站点 · 3 类商品路径</span>
+      <span>每次成功分析消耗 1 积分 · 当前 {{ remainingPoints }} 积分</span>
     </div>
     <div class="analysis-form__control" :class="{ 'is-error': validationMessage }">
       <el-input
@@ -50,11 +53,13 @@ function submit() {
         size="large"
         native-type="submit"
         :loading="loading"
+        :disabled="!hasPoints"
       >
-        {{ loading ? '正在解构' : '开始解构' }}
+        {{ loading ? '正在解构' : hasPoints ? '开始解构 · 1 积分' : '积分不足' }}
       </el-button>
     </div>
     <p v-if="validationMessage" class="analysis-form__error">{{ validationMessage }}</p>
+    <p v-else-if="!hasPoints" class="analysis-form__error">剩余积分为 0，暂时无法提交新的商品分析。</p>
     <p v-else class="analysis-form__hint">不会直接抓取你提交的页面，链接只用于识别站点与 ASIN。</p>
 
     <section class="analysis-form__support" aria-label="支持的 Amazon 商品链接格式">
